@@ -1,0 +1,205 @@
+@import './fonts.scss';
+@import './nullstyle.scss';
+
+$ff: 'Roboto', sans-serif;
+$fs: 1rem;
+$fw: 500;
+$grey: #989898;
+$black: #000;
+$white: #fff;
+$darkPurple: #514EF3;
+
+@mixin flexCenter ($direction) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: $direction;
+}
+@mixin flexSpace ($direction) {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: $direction;
+}
+
+body {
+  height: 100%;
+  width: 100%;
+  font-family: $ff;
+  font-size: $fs;
+  font-weight: $fw;
+  color: $grey;
+}
+
+.wrapper {
+  min-height: 100%;
+  max-width: 1200px;
+  padding: 0 1.25rem;
+  margin: 0 auto;
+  overflow-x: hidden;
+}
+
+.crm {
+  // .crm__container
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem 0;
+    max-width: 800px;
+    padding: 2.5rem 0;
+  }
+  // .crm__block
+  &__block {
+    @include flexSpace(row);
+    gap: 1.25rem 2.5rem;
+    padding: 0 1.2rem;
+  }
+  // .crm__header
+  &__header {
+    color: #000;
+    font-size: 1.25rem;
+  }
+  // .crm__add
+  &__add {
+    width: 1.75rem;
+    height: 1.75rem;
+  }
+  // .crm__add-img
+  &__add-img {
+    min-width: 100%;
+    max-width: 100%;
+    object-fit: cover;
+  }
+}
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem 2.5rem;
+  padding: 1.9rem 1.2rem;
+  border-radius: 0.5rem;
+  background: $white;
+  box-shadow: 0px 2px 12px 0px rgba($black, 0.25);
+  // .list__row
+  &__row {
+    @include flexSpace(row);
+    gap: 2rem 1rem;
+  }
+  // .list__col
+  &__col {
+    width: calc((100% - 2rem) / 3);
+  }
+  // .list__title
+  &__title {
+    text-align: center;
+    color: $black;
+    font-weight: $fw;
+    margin: 0 0 0.625rem;
+  }
+}
+
+.item {
+  // .item__price
+  &__price {
+    text-align: center
+  }
+  // .item__controls
+  &__controls {
+    @include flexCenter(row);
+    gap: 0.3rem;
+  }
+  // .item__control
+  &__control {
+    width: 1.22rem;
+    height: 1.22rem;
+    padding: 1px;
+    @include flexCenter(row);
+  }
+  // .item__edit
+  &__edit {
+    max-width: 100%;
+    object-fit: cover;
+  }
+  // .item__delete
+  &__delete {
+    max-width: 100%;
+    object-fit: cover;
+  }
+}
+
+// -------------POPOVER-----------------
+
+
+.popover {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba($black, 0.50);
+  @include flexCenter(row);
+  z-index: 999;
+}
+.form {
+  min-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 2.37rem 1rem;
+  font-size: 1.25rem;
+  border-radius: 0.75rem;
+  background: $white;
+  padding: 1.75rem 2rem 1.75rem;
+  // .form__block
+  &__block {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem 2rem;
+  }
+  // .form__row
+  &__row {
+    color: $black;
+  }
+  // .form__input-title
+  &__input-title {
+    font-weight: inherit;
+    margin: 0 0 0.75rem;
+  }
+  // .form__input
+  &__input {
+    font-size: 1rem;
+    width: 100%;
+    display: block;
+    padding: 0.625rem 0.5rem;
+    border-radius: 0.5rem;
+    border: 1px solid #EAEEF4;
+    background: #F6FAFD;
+  }
+  // .form__btn
+  &__btn {
+    font-size: inherit;
+  }
+  // .form__btn-save
+  &__btn-save {
+    color: $white;
+    padding: 0.8rem 1.5rem;
+    border-radius: 1rem;
+    background: $darkPurple;
+  }
+  // .form__btn-cancel
+  &__btn-cancel {
+  }
+  // .form__buttons 
+  &__buttons{
+    flex-direction: row;
+    align-self: center;
+  }
+  // .form__tooltip
+  &__tooltip{
+    position: absolute;
+    padding: 0.625rem 0.5rem;
+    background: #fff;
+    box-shadow: 0 5px 20px 0 rgba($black, 0.1);
+    z-index: 999;
+  }
+}
+
+
